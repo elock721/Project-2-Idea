@@ -36,6 +36,4 @@ $(document).ready(function() {
         console.log(err);
       });
   }
-
-  console.log("Here's a change!");
 });
