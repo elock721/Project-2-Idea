@@ -47,29 +47,27 @@ module.exports = function(app) {
     }
   });
 
-
-
   app.get("/api/trucks", function(req, res){
     db.Truck.findAll({
 
     }).then(function(trucks){
+      console.log("TEST", trucks);
       res.json(trucks);
-      console.log(trucks);
-    })
-  })
+      
+    });
 
-
+  });
 
   app.post("/api/trucks", function(req, res) {
     db.Truck.create({
       name: req.body.name,
       cuisine: req.body.cuisine,
-      neighborhood: req.body.location
+      neighborhood: req.body.neighborhood
       
     })
       .then(function(data) {
-        console.log(data);
-        res.json(data);
+        // console.log(json(data));
+        // res.json(data);
         
       })
       .catch(function(err) {

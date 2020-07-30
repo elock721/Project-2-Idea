@@ -5,7 +5,6 @@ module.exports = function(sequelize, DataTypes) {
     name: {
       type: DataTypes.STRING
     },
-    // The password cannot be null
     cuisine: {
       type: DataTypes.STRING
     },
