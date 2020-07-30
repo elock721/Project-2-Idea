@@ -1,57 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script> -->
     <title>Test Area</title>
 </head>
+
 <body>
+    <div class="row">
+        <div class="col-md-2">
+            <h2>Find</h2>
+            <form class="find">
+                <div class="form-group">
+                    <label for="truck_name">Truck Name</label>
+                    <input type="input" class="form-control" id="truck_name" placeholder="Truck Name">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="input" class="form-control" id="location" placeholder="Select Neighborhood">
+                </div>
+                <div class="form-group">
+                    <label for="cuisine_type">Cuisine</label>
+                    <input type="input" class="form-control" id="cuisine_type" placeholder="Cuisine Type">
+                </div>
+                <br />
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        </div>
 
-                <h2>Find My Food Truck</h2>
-                <form class="find">
-                    <div class="form-group">
-                        <label for="truck_name">Truck Name</label>
-                        <input type="input" class="form-control" id="truck_name" placeholder="Truck Name"
-                            style="display: block">
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="input" class="form-control" id="location" placeholder="Select Neighborhood"
-                            style="display: block">
-                    </div>
-                    <div class="form-group">
-                        <label for="cuisine_type">Cuisine</label>
-                        <input type="input" class="form-control" id="cuisine_type" placeholder="Cuisine Type"
-                            style="display: block">
-                    </div>
-                    <br />
-                    <button type="submit" class="btn btn-default">Search</button>
-                </form>
+        <div class="col-md-2">
+            <h2>Post</h2>
+            <form class="add">
+                <div class="form-group">
+                    <label for="add_truck_name">Truck Name</label>
+                    <input type="input" class="form-control" id="add_truck_name" placeholder="Truck Name">
+                </div>
+                <div class="form-group">
+                    <label for="add_location">Location</label>
+                    <input type="input" class="form-control" id="add_location" placeholder="Select Neighborhood">
+                </div>
+                <div class="form-group">
+                    <label for="add_cuisine_type">Cuisine</label>
+                    <input type="input" class="form-control" id="add_cuisine_type" placeholder="Cuisine Type">
+                </div>
+                <br />
+                <button type="submit" class="btn btn-default">Add</button>
+            </form>
+        </div>
+        <div class="col-md-2">
+            <h2>Delete</h2>
+            <form class="delete">
+                <div class="form-group">
+                    <label for="del_truck_name">Truck Name</label>
+                    <input type="input" class="form-control" id="del_truck_name" placeholder="Truck Name">
+                </div>
+                <div class="form-group">
+                    <label for="del_location">Location</label>
+                    <input type="input" class="form-control" id="del_location" placeholder="Select Neighborhood">
+                </div>
+                <div class="form-group">
+                    <label for="del_cuisine_type">Cuisine</label>
+                    <input type="input" class="form-control" id="del_cuisine_type" placeholder="Cuisine Type">
+                </div>
+                <br />
+                <button type="submit" class="btn btn-default">Delete</button>
+            </form>
+        </div>
+    </div>
 
-                <h2>Post New Data</h2>
-                <form class="add">
-                    <div class="form-group">
-                        <label for="add_truck_name">Truck Name</label>
-                        <input type="input" class="form-control" id="add_truck_name" placeholder="Truck Name"
-                            style="display: block">
-                    </div>
-                    <div class="form-group">
-                        <label for="add_location">Location</label>
-                        <input type="input" class="form-control" id="add_location" placeholder="Select Neighborhood"
-                            style="display: block">
-                    </div>
-                    <div class="form-group">
-                        <label for="add_cuisine_type">Cuisine</label>
-                        <input type="input" class="form-control" id="add_cuisine_type" placeholder="Cuisine Type"
-                            style="display: block">
-                    </div>
-                    <br />
-                    <button type="submit" class="btn btn-default">Add</button>
-                </form>
+    <!-- <div class="card">
+    <div class="card-header">
+      <h4>Table data</h4>
+    </div>
+    <div class="card-body">
+      <ul id="tableList" class="list-group"></ul>
+    </div>
+  </div> -->
 
-  
+    <table class="table table-bordered table-light table-hover">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">Id</th>
+                <th scope="col">Truck Name</th>
+                <th scope="col">Cuisine Type</th>
+                <th scope="col">Neighborhood</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/find_Or_Post.js"></script>
-    
+
 </body>
+
 </html>
