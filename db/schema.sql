@@ -13,7 +13,7 @@ CREATE TABLE foodtruck_name (
 
 INSERT INTO foodtruck_name (name, cuisine, neighborhood)
 VALUES ("Veracruz All Natural", "Mexican", "4208 Manchaca Rd. 78704"), 
-("Gordoughs Big Fat Donuts", "American", "1503 South First Street 78704");
+("Gordoughs Big Fat Donuts", "American", "1503 South First Street 78704"),
 ("Con Madre Kitchen", "Mexican", "628 E Oltorf St"),
 ("Pueblo Viejo Taco Truck", "Mexican", "121 Pickle Rd"),
 ("Mama Mal's Italian Cuisine Food Truck", "Southern Italian", "1320 S Lamar Blvd"),
