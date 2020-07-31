@@ -5,12 +5,15 @@
   <title>Passport Authentication</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"> -->
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
+
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
+  <!-- <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/logout">
@@ -18,14 +21,125 @@
       </a>
     </div>
   </div>
-</nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
-      </div>
+</nav> -->
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/logout"> Logout </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
+  </nav>
+
+<!-- start of CSS Grid -->
+  <div class="page-grid">
+
+    <section class="hero is-medium is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Primary bold title
+          </h1>
+          <h2 class="subtitle">
+            Primary bold subtitle
+          </h2>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="welcome">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h2>Welcome <span class="member-name"></span></h2>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="title">Find your favorite food</p>
+          </div>
+        </div>
+      </nav>
+
+
+      <figure class="c4-izmir">
+        <img src="https://source.unsplash.com/FaPxZ88yZrw/400x300" alt="Sample Image">
+        <figcaption>
+            <h3>
+              Some sample text
+            </h3>
+          </div>
+      </figure>
+
+    </section>
+
+    <nav class="top">
+      <div class="dropdownBackground">
+        <span class="arrow"></span>
+      </div>
+
+      <ul class="cool">
+        <li>
+          <a href="#">Cuisine</a>
+          <ul class="dropdown courses">
+            <li>
+              <span class="foodType"></span>
+              <a class="button" href="">Mexican</a>
+            </li>
+            <li>
+              <span class="foodType"></span>
+              <a  class="button" class="button" href="">American</a>
+            </li>
+            <li>
+              <span class="foodType"></span>
+              <a class="button" href="">Italian</a>
+            </li>
+            <li>
+              <span class="foodType"></span>
+              <a class="button" href="">Mediteranean</a>
+            </li>
+
+            <!-- <li>
+            </li> -->
+            
+          </ul>
+        </li>
+
+        <ul class="cool">
+          <li>
+            <a href="#">Trucks</a>
+            <ul class="dropdown courses">
+              <li>
+                <span class="foodType"></span>
+                <a class="button" href="">Luke's Inside Out</a>
+              </li>
+              <li>
+                <span class="foodType"></span>
+                <a class="button" href="">Locos Tacos</a>
+              </li>
+              <li>
+                <span class="foodType"></span>
+                <a class="button" href="">Arlo's</a>
+              </li>
+              <li>
+                <span class="foodType"></span>
+                <a class="button" href="">Hey, Don't you wanna eat or what?</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </nav>
   </div>
+
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
