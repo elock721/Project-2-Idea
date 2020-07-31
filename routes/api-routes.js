@@ -65,10 +65,6 @@ module.exports = function(app) {
 
     }).then(function(trucks){
       res.json(trucks);
-      
-    }).then(function(trucks) {
-      // console.log("TEST", trucks);
-      res.json(trucks);
     });
   });
 
