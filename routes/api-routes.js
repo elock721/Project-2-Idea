@@ -55,9 +55,7 @@ module.exports = function(app) {
 
     }).then(function(trucks){
       res.json(trucks);
-      
     });
-
   });
 
   // Search by name
@@ -91,21 +89,14 @@ module.exports = function(app) {
       name: req.body.name,
       cuisine: req.body.cuisine,
       neighborhood: req.body.neighborhood
-      
     })
       .then(function(data) {
         // console.log(json(data));
         // res.json(data);
-        
       })
       .catch(function(err) {
         res.status(401).json(err);
       });
   });
-
-
-
-
-
 
 };
