@@ -26,16 +26,27 @@ body {
 
 .title {
   grid-area: title;
+
 }
 
 .top {
   grid-area: main;
 }
 
+h1,
+h2 {
+  background-color: white;
+  text-align: center;
+  opacity: 95%;
+}
+
+
 .hero {
   float: right;
   padding: 18rem 1.2rem;
+  color: white;
   grid-area: sidebar;
+  background-image: url(https://images.all-free-download.com/images/graphiclarge/vivid_food_icons_vector_536507.jpg); 
 }
 
 .cool>li>a {
@@ -63,9 +74,11 @@ nav ul {
   justify-content: center;
 }
 
-a.button {
+
+a.button,
+.thumbimg {
+  margin: 4px;
   display: block;
-  font-size: large;
 }
 
 .dropdown {
