@@ -2,84 +2,103 @@ $(document).ready(function () {
     // Getting references to our form and inputs
     var findTruckForm = $("form.find");
     var truckNameInput = $("input#truck_name");
-    var locationInput = $("input#location");
     var cuisineTypeInput = $("input#cuisine_type");
+    var locationInput = $("input#location");
 
     var addTruckForm = $("form.add");
     var addTruckNameInput = $("input#add_truck_name");
     var addLocationInput = $("input#add_location");
     var addCuisineTypeInput = $("input#add_cuisine_type");
 
-    var tableList = $("#tableList");
-    var tableBody = $("#tableBody");
-
     findTruckForm.on("submit", function (event) {
         event.preventDefault();
+        clearTable();
 
-        // tableList.empty();
-        $(".table").find('tbody').empty();
-        
-        // var userData = {
-        //     name: truckNameInput.val().trim(),
-        //     cuisine: cuisineTypeInput.val().trim(),
-        //     neighborhood: locationInput.val().trim()
+        var searchBy = {
+            name: truckNameInput.val().trim(),
+            cuisine: cuisineTypeInput.val().trim(),
+            neighborhood: locationInput.val().trim()
+        }
 
-        // }
+        // Make sure atleast one field has been filled
+        if (!searchBy.name && !searchBy.cuisine && !searchBy.neighborhood) {
+            console.log("PLEASE SELECT ATLEAST ONE ITEM TO SEARCH FOR");
 
-        // $.get("/api/trucks", function (data) {
-        //    console.log(data);
-        // });
+        tstQry();
+        // Search by name, cuisine, neighborhood
+        } else if (searchBy.name && searchBy.cuisine && searchBy.neighborhood) {
+            console.log("search by ALL 3");
 
-        $.ajax({ url: "/api/trucks", method: "GET" })
-            .then(function (data) {
+        // Search by name only
+        } else if (searchBy.name && !searchBy.cuisine && !searchBy.neighborhood) {
+            queryByName(searchBy);
 
-                console.log(data);
-                console.log("------------------------------------");
+        // Search by cuisine
+        } else if (!searchBy.name && searchBy.cuisine && !searchBy.neighborhood) {
+            console.log("search by CUISINE");
+            queryByCuisine(searchBy);
 
-                for (var i = 0; i < data.length; i++) {
+        // Search by location
+        } else if (!searchBy.name && !searchBy.cuisine && searchBy.neighborhood) {
+            console.log("search by LOCATION");
 
-                    // var listItem = $("<li class='list-group-item mt-4'>");
-                    // listItem.append(
-                    //     $("<p>").text(data[i].id + " " + data[i].name + " " + data[i].cuisine + " " + data[i].neighborhood)
-                    // );
+        // Search by name and cuisine
+        } else if (searchBy.name && searchBy.cuisine && !searchBy.neighborhood) {
+            console.log("search by NAME & CUISINE");
 
-                    // var rowsToAdd = [];
+        // Search by name and location
+        } else if (searchBy.name && !searchBy.cuisine && searchBy.neighborhood) {
+            console.log("search by NAME & LOCATION");
 
-                    // var newTR = $("<tr>");
-                    // newTR.append("<td>" + data[i].id + "</td>");
-                    // newTR.append("<td>" + data[i].name + "</td>");
-                    // newTR.append("<td>" + data[i].cuisine + "</td>");
-                    // newTR.append("<td>" + data[i].neighborhood + "</td>");
-
-                    // rowsToAdd.push(newTR);
-                    // console.log(rowsToAdd);
-                    // tableList.append(rowsToAdd);
-
-                    $(".table").find('tbody')
-                        // .append($('<tr>').append($('<td>').append($('<img>').attr('src', 'img.png').text('Image cell'))))
-                        .append($('<tr>')
-                        // .append($('<td>').text(data[i].id))
-                        .append($('<th scope="row">').text(data[i].id))
-                        .append($('<td>').text(data[i].name))
-                        .append($('<td>').text(data[i].cuisine))
-                        .append($('<td>').text(data[i].neighborhood)));
-
-
-
-                }
-            });
-
-
-
-
-
-
-
-
-
+        // Search by cuisine and location
+        } else if (!searchBy.name && searchBy.cuisine && searchBy.neighborhood) {
+            console.log("search by CUISINE & LOCATION");            
+        }
     });
 
+    function tstQry(){
+        $.ajax({ url: "/api/trucks", method: "GET" })
+            .then(renderTable);
+    }
 
+
+    
+    function queryByName(searchBy){
+        console.log(searchBy);
+        $.get("/api/trucks/" + searchBy.name, function(qryResults){
+            renderTable(qryResults);
+        });
+    }
+
+    function queryByCuisine(searchBy){
+        $.get("/api/trucks/cuisine/" + searchBy.cuisine, function(qryResults){
+            renderTable(qryResults);
+        });
+    }
+
+
+
+
+
+
+    function clearTable(){
+        $(".table").find('tbody').empty();
+    }
+
+    function renderTable(qryResults) {
+        for (var i = 0; i < qryResults.length; i++) {
+
+            $(".table").find('tbody')
+                .append($('<tr>')
+                    .append($('<th scope="row">').text(qryResults[i].id))
+                    .append($('<td>').text(qryResults[i].name))
+                    .append($('<td>').text(qryResults[i].cuisine))
+                    .append($('<td>').text(qryResults[i].neighborhood)));
+        }
+    }
+
+
+    // WORKS FINE
     addTruckForm.on("submit", function (event) {
         event.preventDefault();
 
@@ -87,18 +106,43 @@ $(document).ready(function () {
             name: addTruckNameInput.val().trim(),
             cuisine: addCuisineTypeInput.val().trim(),
             neighborhood: addLocationInput.val().trim()
-
         }
-
-
 
         $.post("/api/trucks", addUserData)
             .then(function (data) {
                 console.log(data);
             });
-
-
     });
 
-
 });
+
+
+
+
+
+
+
+
+
+// function renderTable(data) {
+//     $(".table").find('tbody').empty();
+
+
+// $.ajax({ url: "/api/trucks", method: "GET" })
+//     .then(function (data) {
+
+//         console.log(data);
+//         console.log("------------------------------------");
+
+//         for (var i = 0; i < data.length; i++) {
+
+//             $(".table").find('tbody')
+//                 .append($('<tr>')
+//                     .append($('<th scope="row">').text(data[i].id))
+//                     .append($('<td>').text(data[i].name))
+//                     .append($('<td>').text(data[i].cuisine))
+//                     .append($('<td>').text(data[i].neighborhood)));
+//         }
+//     });
+
+// }
