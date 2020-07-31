@@ -57,12 +57,46 @@ module.exports = function(app) {
           { neighborhood:{$eq: req.body.neighborhood}},
         ]
       }
+
+
+
+  app.get("/api/trucks", function(req, res){
+    db.Truck.findAll({
+
+    }).then(function(trucks){
+      res.json(trucks);
       
     }).then(function(trucks) {
       // console.log("TEST", trucks);
       res.json(trucks);
     });
   });
+
+  // Search by name
+  app.get("/api/trucks/:name", function(req, res){
+    db.Truck.findAll({
+      where: {
+        name: req.params.name 
+      }
+    }).then(function(result){
+      res.json(result)
+    })
+  })
+
+    // Search by cuisine
+    app.get("/api/trucks/cuisine/:cuisine", function(req, res){
+      db.Truck.findAll({
+        where: {
+          cuisine: req.params.cuisine
+        }
+      }).then(function(result){
+        res.json(result)
+      })
+    })
+
+
+
+
 
   app.post("/api/trucks", function(req, res) {
     db.Truck.create({
