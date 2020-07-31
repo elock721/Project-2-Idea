@@ -47,15 +47,21 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/api/trucks", function(req, res){
+  app.post("/api/trucks/search", function(req, res) {
+    console.log(req.body);
     db.Truck.findAll({
-
-    }).then(function(trucks){
-      console.log("TEST", trucks);
-      res.json(trucks);
+      where: {
+        name: req.body.name,
+        $or:[
+          { cuisine:{$eq: req.body.cuisine}},
+          { neighborhood:{$eq: req.body.neighborhood}},
+        ]
+      }
       
+    }).then(function(trucks) {
+      // console.log("TEST", trucks);
+      res.json(trucks);
     });
-
   });
 
   app.post("/api/trucks", function(req, res) {
@@ -63,21 +69,13 @@ module.exports = function(app) {
       name: req.body.name,
       cuisine: req.body.cuisine,
       neighborhood: req.body.neighborhood
-      
     })
       .then(function(data) {
         // console.log(json(data));
         // res.json(data);
-        
       })
       .catch(function(err) {
         res.status(401).json(err);
       });
   });
-
-
-
-
-
-
 };

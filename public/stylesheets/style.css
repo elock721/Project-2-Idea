@@ -2,3 +2,10 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+/* body.signup {
+  background-image: url('images/truck.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+} */
