@@ -1,3 +1,5 @@
+
+/* Set up page Grid */
 form.signup,
 form.login {
   margin-top: 50px;
@@ -5,17 +7,25 @@ form.login {
 
 .page-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1.25fr;
   grid-template-rows: 80px auto;
   grid-template-areas: "welcome sidebar"
-                       "title sidebar"
-                       "main sidebar";
+                       "main sidebar"
+                       "main sidebar"
+                       "results sidebar";
 }
 
 body {
   margin: 0;
   min-height: 100vh;
 }
+
+.navbar {
+  background-color: lightgray;
+}
+
+
+/* Start of elements */
 
 .welcome {
   padding: 10px 20px;
@@ -24,13 +34,39 @@ body {
   grid-area: welcome;
 }
 
-.title {
-  grid-area: title;
-
-}
-
 .top {
   grid-area: main;
+}
+
+.table{
+  grid-area: results;
+  margin: 30px;
+}
+
+.inputSection {
+  grid-area: main;
+  max-width: 50vw;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0 auto ;
+}
+
+.form-group {
+  padding: 10px;
+}
+
+.inputBox {
+  display: inline-block;
+  margin: 15px;
+}
+
+.input {
+  margin: 0px;
+}
+
+.label {
+  font-family: 'Caveat', cursive;
+  font-size: xx-large
 }
 
 h1,
@@ -49,6 +85,65 @@ h2 {
   background-image: url(https://images.all-free-download.com/images/graphiclarge/vivid_food_icons_vector_536507.jpg); 
 }
 
+.card {
+  margin: 20px;
+  box-sizing: border-box;
+  padding: 25px;
+}
+
+.card-footer{
+  padding: 5px;
+  font-style: italic;
+}
+
+/* Search & Add button styling and animation_____________*/
+
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 1px solid #e74d3cc5;
+  border-radius: 0.6em;
+  color: #e74d3cc5;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.btn:hover, .btn:focus {
+    color: #fff;
+    outline: 0;
+}
+
+.first {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.first:hover {
+    box-shadow: 0 0 40px 40px #f76151 inset;
+}
+
+
+
+/* Buttons (no longer used) */
 .cool>li>a {
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -59,7 +154,6 @@ h2 {
   margin: 20px;
   border-radius: 5px;
 }
-
 nav ul {
   list-style: none;
   margin: 0;
@@ -67,20 +161,16 @@ nav ul {
   display: flex;
   justify-content: center;
 }
-
 .cool>li {
   position: relative;
   display: flex;
   justify-content: center;
 }
-
-
 a.button,
 .thumbimg {
   margin: 4px;
   display: block;
 }
-
 .dropdown {
   opacity: 0;
   position: absolute;
@@ -93,17 +183,13 @@ a.button,
   will-change: opacity;
   display: none;
 }
-
 .trigger-enter .dropdown {
   display: block;
 }
-
 .trigger-enter-active .dropdown {
   opacity: 1;
 }
-
 .trigger-leave .dropdown {}
-
 .dropdownBackground {
   width: 100px;
   height: 100px;
@@ -117,11 +203,9 @@ a.button,
   justify-content: center;
   opacity: 0;
 }
-
 .dropdownBackground.open {
   opacity: 1;
 }
-
 .arrow {
   position: absolute;
   width: 20px;
