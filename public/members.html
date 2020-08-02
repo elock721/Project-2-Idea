@@ -5,16 +5,15 @@
   <title>Passport Authentication</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"> -->
-
-
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
 
-
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Walter+Turncoat&display=swap" rel="stylesheet"> 
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
@@ -22,15 +21,6 @@
 </head>
 
 <body>
-  <!-- <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
-  </div>
-</nav> -->
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -51,25 +41,26 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Primary bold title
+            "Where are all the good food trucks?"
           </h1>
           <h2 class="subtitle">
-            Primary bold subtitle
+            - Ernest Hemingway
           </h2>
         </div>
       </div>
     </section>
 
+    <!-- class="col-md-6 col-md-offset-3" -->
 
-    <section class="welcome">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+    <section class="level welcome">
+      <div class="level-item has-text-centered">
+        <div>
           <h2>Welcome <span class="member-name"></span></h2>
         </div>
       </div>
     </section>
 
-    <section>
+    <!-- <section>
       <nav class="level">
         <div class="level-item has-text-centered">
           <div>
@@ -77,10 +68,10 @@
           </div>
         </div>
       </nav>
-
-    </section>
+    </section> -->
 
     <nav class="top">
+
       <!-- <div class="dropdownBackground">
         <span class="arrow"></span>
       </div>
@@ -156,50 +147,67 @@
         </li>
       </ul> -->
 
-
-
-      <div class="row">
-        <div class="col-md-2">
-            <h2>Find</h2>
+      <section class='inputSection'>
+        <!-- <div class="row"> -->
+          <div class="col-md-2 inputBox">
+            <h2 class="title">Find a Truck</h2>
             <form class="find">
-                <div class="form-group">
-                    <label for="">Truck Name</label>
-                    <input type="input" class="form-control" id="truck_name" placeholder="Truck Name">
-                </div>
-                <div class="form-group">
-                    <label for="">Location</label>
-                    <input type="input" class="form-control" id="location" placeholder="Select Neighborhood">
-                </div>
-                <div class="form-group">
-                    <label for="">Cuisine</label>
-                    <input type="input" class="form-control" id="cuisine_type" placeholder="Cuisine Type">
-                </div>
-                <br />
-                <button type="submit" class="btn btn-default">Search</button>
+              <div class="form-group">
+                <label for="" class='label'>Truck Name</label>
+                <input type="input" class="input is-rounded form-control" id="truck_name" placeholder="Truck Name">
+              </div>
+              <div class="form-group">
+                <label for="" class='label'>Location</label>
+                <input type="input" class="input is-rounded has-icons-left" id="location"
+                  placeholder="Select Neighborhood">
+              </div>
+              <div class="form-group">
+                <label for="" class='label'>Cuisine</label>
+                <input type="input" class="input is-rounded form-control" id="cuisine_type" placeholder="Cuisine Type">
+              </div>
+              <br />
+              <button type="submit" class="button btn first"><span>Search</span></button>
             </form>
-        </div>
-
-      
+          </div>
 
 
-        <table class="table table-bordered table-light table-hover">
-          <thead>
-              <tr class="text-center">
-                  <th scope="col">Id</th>
-                  <th scope="col">Truck Name</th>
-                  <th scope="col">Cuisine Type</th>
-                  <th scope="col">Neighborhood</th>
-              </tr>
-          </thead>
-          <tbody>
-          </tbody>
+          <div class="col-md-2 inputBox">
+            <h2 class="title">Add a Truck</h2>
+            <form class="add">
+              <div class="form-group">
+                <label for="add_truck_name" class='label'>Truck Name</label>
+                <input type="input" class="input is-rounded form-control" id="add_truck_name" placeholder="Truck Name">
+              </div>
+              <div class="form-group">
+                <label for="add_location" class='label'>Location</label>
+                <input type="input" class="input is-rounded form-control" id="add_location"
+                  placeholder="Select Neighborhood">
+              </div>
+              <div class="form-group">
+                <label for="add_cuisine_type" class='label'>Cuisine</label>
+                <input type="input" class="input is-rounded form-control" id="add_cuisine_type"
+                  placeholder="Cuisine Type">
+              </div>
+              <br />
+              <button type="submit" class="button btn first"><span>Add</span></button>
+            </form>
+          </div>
+      </section>
+
+
+
+      <table class="table table-bordered table-light table-hover">
+        <thead>
+          <!-- <tr class="text-center">
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+              </tr> -->
+        </thead>
+        <tbody>
+        </tbody>
       </table>
-
-
-
-
-
-
 
     </nav>
   </div>
