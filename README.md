@@ -57,6 +57,6 @@ If you have any questions or wish to see my github profile:
 ​
 * Gihub Profile: https://github.com/elock721/Project-2-Idea
 
-* Heroku: 
+* Heroku: https://find-my-fare.herokuapp.com/
 
 
