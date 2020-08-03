@@ -10,6 +10,11 @@ $(document).ready(function() {
   var addLocationInput = $("input#add_location");
   var addCuisineTypeInput = $("input#add_cuisine_type");
 
+ var addLatitude = $("input#add_latitude");
+ var addLongitude = $("input#add_longitude");
+
+//  initMap();
+
   findTruckForm.on("submit", function(event) {
     event.preventDefault();
     clearTable();
@@ -56,10 +61,14 @@ $(document).ready(function() {
     }
   });
 
+
   function tstQry() {
     $.ajax({ url: "/api/trucks", method: "GET" })
     // .then (renderTable)
-    .then(renderResults);
+    .then(function(qryResults){
+      renderResults(qryResults);
+      initMap(qryResults);
+    });
   }
 
   function queryByName(searchBy) {
@@ -67,6 +76,7 @@ $(document).ready(function() {
     $.get("/api/trucks/" + searchBy.name, function(qryResults) {
       // renderTable(qryResults);
       renderResults(qryResults);
+      initMap(qryResults);
     });
   }
 
@@ -74,6 +84,7 @@ $(document).ready(function() {
     $.get("/api/trucks/cuisine/" + searchBy.cuisine, function(qryResults) {
       // renderTable(qryResults);
       renderResults(qryResults);
+      initMap(qryResults);
     });
   }
 
@@ -83,19 +94,21 @@ $(document).ready(function() {
       .empty();
   }
 
-  // function renderTable(qryResults) {
-  //   for (var i = 0; i < qryResults.length; i++) {
-  //     $(".table")
-  //       .find("tbody")
-  //       .append(
-  //         $("<tr>")
-  //           .append($('<th scope="row">').text(qryResults[i].id))
-  //           .append($("<td>").text(qryResults[i].name))
-  //           .append($("<td>").text(qryResults[i].cuisine))
-  //           .append($("<td>").text(qryResults[i].neighborhood))
-  //       );
-  //   }
-  // }
+  function renderTable(qryResults) {
+    for (var i = 0; i < qryResults.length; i++) {
+      $(".table")
+        .find("tbody")
+        .append(
+          $("<tr>")
+            .append($('<th scope="row">').text(qryResults[i].id))
+            .append($("<td>").text(qryResults[i].name))
+            .append($("<td>").text(qryResults[i].cuisine))
+            .append($("<td>").text(qryResults[i].neighborhood))
+            .append($("<td>").text(qryResults[i].latitude))
+            .append($("<td>").text(qryResults[i].longitude))
+        );
+    }
+  }
 
   function renderResults(qryResults) {
     for (var i = 0; i < qryResults.length; i++) {
@@ -123,6 +136,27 @@ $(document).ready(function() {
   }
   
 
+  $("#view_all").on("click", function(){
+    qryAllRecords();
+    
+
+  })
+
+
+  function qryAllRecords() {
+    $.ajax({ url: "/api/trucks", method: "GET" })
+    // .then (renderTable)
+    .then(function(qryResults){
+    //   renderResults(qryResults);
+    renderTable(qryResults);
+    
+
+    });
+  }
+
+
+
+
   // WORKS FINE
   addTruckForm.on("submit", function(event) {
     event.preventDefault();
@@ -130,7 +164,9 @@ $(document).ready(function() {
     var addUserData = {
       name: addTruckNameInput.val().trim(),
       cuisine: addCuisineTypeInput.val().trim(),
-      neighborhood: addLocationInput.val().trim()
+      neighborhood: addLocationInput.val().trim(),
+      latitude: addLatitude.val().trim(),
+      longitude: addLongitude.val().trim()
     };
 
     $.post("/api/trucks", addUserData).then(function(data) {
@@ -139,24 +175,3 @@ $(document).ready(function() {
   });
 });
 
-// function renderTable(data) {
-//     $(".table").find('tbody').empty();
-
-// $.ajax({ url: "/api/trucks", method: "GET" })
-//     .then(function (data) {
-
-//         console.log(data);
-//         console.log("------------------------------------");
-
-//         for (var i = 0; i < data.length; i++) {
-
-//             $(".table").find('tbody')
-//                 .append($('<tr>')
-//                     .append($('<th scope="row">').text(data[i].id))
-//                     .append($('<td>').text(data[i].name))
-//                     .append($('<td>').text(data[i].cuisine))
-//                     .append($('<td>').text(data[i].neighborhood)));
-//         }
-//     });
-
-// }

@@ -88,7 +88,9 @@ module.exports = function(app) {
     db.Truck.create({
       name: req.body.name,
       cuisine: req.body.cuisine,
-      neighborhood: req.body.neighborhood
+      neighborhood: req.body.neighborhood,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude
     })
       .then(function(data) {
         // console.log(json(data));

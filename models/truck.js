@@ -10,6 +10,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     neighborhood: {
       type: DataTypes.STRING
+    },
+    latitude: {
+      type: DataTypes.FLOAT
+    },
+    longitude: {
+      type: DataTypes.FLOAT
     }
   });
 

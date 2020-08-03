@@ -7,13 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<<<<<<< HEAD
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-=======
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"> -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
->>>>>>> dff366f9c8c9d24a1b087e300593e77c7f817825
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
@@ -30,7 +25,7 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/logout"> Logout </a>
-
+      <a class="navbar-item" href="/main.html"> Add A Truck </a>
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -42,18 +37,8 @@
   <!-- start of CSS Grid -->
   <div class="page-grid">
 
-    <section class="hero is-medium">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            "Where are all the good food trucks?"
-          </h1>
-          <h2 class="subtitle">
-            - Ernest Hemingway
-          </h2>
-        </div>
-      </div>
-    </section>
+      <!-- foods grid background -->
+<div id="map" style="height: 1000px;"></div>
 
     <!-- class="col-md-6 col-md-offset-3" -->
 
@@ -65,118 +50,36 @@
       </div>
     </section>
 
-    <!-- <section>
-      <nav class="level">
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="title">Find your favorite food</p>
-          </div>
-        </div>
-      </nav>
-    </section> -->
 
     <nav class="top">
 
-      <!-- <div class="dropdownBackground">
-        <span class="arrow"></span>
-      </div>
 
-      <ul class="cool">
-        
-        <li>
-          <a href="#">Cuisine</a>
-          <ul class="dropdown cuisines">
-            <li>
-              <span class="foodType"></span>
-              <a class="button" id="btn1" href="">Mexican</a>
-
-            </li>
-            <li>
-              <span class="foodType"></span>
-              <a class="button" class="button" h ref="">American</a>
-            </li>
-            <li>
-              <span class="foodType"></span>
-              <a class="button" href="">Italian</a>
-            </li>
-            <li>
-              <span class="foodType"></span>
-              <a class="button" href="">Mediteranean</a>
-              <img class="thumbimg" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsinglestroke.io%2Fwp-content%2Fuploads%2F2015%2F10%2Fhigh-quality-food-stock-photos-thumbnail.jpg&f=1&nofb=1" alt="sample">
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="#">Location</a>
-          <ul class="dropdown locations">
-            <li>
-              <span class="location"></span>
-              <a class="button" href="">Clarksville</a>
-            </li>
-            <li>
-              <span class="location"></span>
-              <a class="button" href="">Tarry Town</a>
-            </li>
-            <li>
-              <span class="location"></span>
-              <a class="button" href="">Hyde Park</a>
-            </li>
-            <li>
-              <span class="location"></span>
-              <a class="button" href="">East Austin</a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="#">Trucks</a>
-          <ul class="dropdown names">
-            <li>
-              <span class="truckName"></span>
-              <a class="button" href="">Luke's Inside Out</a>
-            </li>
-            <li>
-              <span class="truckName"></span>
-              <a class="button" href="">Locos Tacos</a>
-            </li>
-            <li>
-              <span class="truckName"></span>
-              <a class="button" href="">Arlo's</a>
-            </li>
-            <li>
-              <span class="truckName"></span>
-              <a class="button" href="">Hey, Don't you wanna eat or what?</a>
-            </li>
-          </ul>
-        </li>
-      </ul> -->
 
       <section class='inputSection'>
         <!-- <div class="row"> -->
           <div class="col-md-2 inputBox">
             <h2 class="title">Find a Truck</h2>
             <form class="find">
-              <div class="form-group">
+              <div class="form-group" style="float: left">
                 <label for="" class='label'>Truck Name</label>
                 <input type="input" class="input is-rounded form-control" id="truck_name" placeholder="Truck Name">
               </div>
-              <div class="form-group">
+              <div class="form-group" style="float: left">
                 <label for="" class='label'>Location</label>
                 <input type="input" class="input is-rounded has-icons-left" id="location"
                   placeholder="Select Neighborhood">
               </div>
-              <div class="form-group">
+              <div class="form-group" style="float: left">
                 <label for="" class='label'>Cuisine</label>
                 <input type="input" class="input is-rounded form-control" id="cuisine_type" placeholder="Cuisine Type">
               </div>
-              <br />
-              <button type="submit" class="button btn first"><span>Search</span></button>
+             
+              <button style="float: left; top: 50px" type="submit" class="button btn first"><span>Search</span></button>
             </form>
           </div>
 
 
-          <div class="col-md-2 inputBox">
+          <!-- <div class="col-md-2 inputBox">
             <h2 class="title">Add a Truck</h2>
             <form class="add">
               <div class="form-group">
@@ -196,7 +99,7 @@
               <br />
               <button type="submit" class="button btn first"><span>Add</span></button>
             </form>
-          </div>
+          </div> -->
       </section>
 
 
@@ -222,8 +125,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
 
-
+  <script type="text/javascript" src="js/map.js"></script>
   <script type="text/javascript" src="js/find_Or_Post.js"></script>
+
+
+
+
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz62rPh4F3gKDqv6sFC4I4TU8rmcHrLTs&callback=initMap"></script>
+
+
 
 
 

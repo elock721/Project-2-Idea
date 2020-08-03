@@ -82,13 +82,14 @@ h2 {
   padding: 18rem 1.2rem;
   color: white;
   grid-area: sidebar;
-  background-image: url(https://images.all-free-download.com/images/graphiclarge/vivid_food_icons_vector_536507.jpg); 
+  /* background-image: url(https://images.all-free-download.com/images/graphiclarge/vivid_food_icons_vector_536507.jpg);  */
 }
 
 .card {
   margin: 20px;
   box-sizing: border-box;
   padding: 25px;
+
 }
 
 .card-footer{
@@ -214,3 +215,11 @@ a.button,
   background: white;
   transform: translateY(-50%) rotate(45deg);
 }
+
+
+
+
+.group{
+  display: inline-block;
+  }
+  
