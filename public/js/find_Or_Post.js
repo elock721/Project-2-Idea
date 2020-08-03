@@ -105,7 +105,7 @@ $(document).ready(function() {
       let cuisineEl = $('<p>');
       let neighborhoodEl = $('<p>');
 
-      resBox.attr('class',"card")
+      resBox.attr('class',"card");
       nameEl.text(qryResults[i].name);
       nameEl.attr("class","title");
       cuisineEl.text(qryResults[i].cuisine);

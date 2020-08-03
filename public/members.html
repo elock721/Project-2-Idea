@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>Find my Fare</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,16 +13,31 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
 
-  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Walter+Turncoat&display=swap" rel="stylesheet"> 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat&family=Raleway:wght@300&family=Walter+Turncoat&display=swap"
+    rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
+
+  <style>
+    /* Set the size of the div element that contains the map */
+    #map {
+      height: 400px;
+      /* The height is 400 pixels */
+      width: 100%;
+      /* The width is the width of the web page */
+    }
+  </style>
+
 
 </head>
 
 <body>
 
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <!-- Navbar -->
+
+  <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/logout"> Logout </a>
 
@@ -30,6 +45,18 @@
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav> -->
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/members.html">
+        <img src="images/FMFLogo.png" width="70" height="58">
+      </a>
+
+      <a class="navbar-item log" href="/logout">
+        Logout
       </a>
     </div>
   </nav>
@@ -40,12 +67,35 @@
     <section class="hero is-medium">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">
+          <h1 class="labelhero">
             "Where are all the good food trucks?"
           </h1>
           <h2 class="subtitle">
             - Ernest Hemingway
           </h2>
+
+          <div id="map"></div>
+          <script>
+            // Initialize and add the map
+            function initMap() {
+              // The location of Uluru
+              var uluru={lat: -25.344,lng: 131.036};
+              // The map, centered at Uluru
+              var map=new google.maps.Map(
+                document.getElementById('map'),{zoom: 4,center: uluru});
+              // The marker, positioned at Uluru
+              var marker=new google.maps.Marker({position: uluru,map: map});
+            }
+          </script>
+          <!--Load the API from the specified URL
+          * The async attribute allows the browser to render the page while the API loads
+          * The key parameter will contain your own API key (which is not needed for this tutorial)
+          * The callback parameter executes the initMap() function
+          -->
+          <script defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz62rPh4F3gKDqv6sFC4I4TU8rmcHrLTs&callback=initMap">
+            </script>
+
         </div>
       </div>
     </section>
@@ -55,7 +105,7 @@
     <section class="level welcome">
       <div class="level-item has-text-centered">
         <div>
-          <h2>Welcome <span class="member-name"></span></h2>
+          <h2>Let's find some food <span class="member-name"></span></h2>
         </div>
       </div>
     </section>
@@ -149,61 +199,55 @@
 
       <section class='inputSection'>
         <!-- <div class="row"> -->
-          <div class="col-md-2 inputBox">
-            <h2 class="title">Find a Truck</h2>
-            <form class="find">
-              <div class="form-group">
-                <label for="" class='label'>Truck Name</label>
-                <input type="input" class="input is-rounded form-control" id="truck_name" placeholder="Truck Name">
-              </div>
-              <div class="form-group">
-                <label for="" class='label'>Location</label>
-                <input type="input" class="input is-rounded has-icons-left" id="location"
-                  placeholder="Select Neighborhood">
-              </div>
-              <div class="form-group">
-                <label for="" class='label'>Cuisine</label>
-                <input type="input" class="input is-rounded form-control" id="cuisine_type" placeholder="Cuisine Type">
-              </div>
-              <br />
-              <button type="submit" class="button btn first"><span>Search</span></button>
-            </form>
-          </div>
+        <div class="col-md-2 inputBox">
+          <h2 class="title is-4">Find a Truck</h2>
+          <form class="find">
+            <div class="form-group">
+              <label for="" class='label'>Truck Name</label>
+              <input type="input" class="input is-rounded form-control" id="truck_name" placeholder="Truck Name">
+            </div>
+            <div class="form-group">
+              <label for="" class='label'>Location</label>
+              <input type="input" class="input is-rounded has-icons-left" id="location"
+                placeholder="Select Neighborhood">
+            </div>
+            <div class="form-group">
+              <label for="" class='label'>Cuisine</label>
+              <input type="input" class="input is-rounded form-control" id="cuisine_type" placeholder="Cuisine Type">
+            </div>
+            <br />
+            <button type="submit" class="button btn first"><span>Search</span></button>
+          </form>
+        </div>
 
 
-          <div class="col-md-2 inputBox">
-            <h2 class="title">Add a Truck</h2>
-            <form class="add">
-              <div class="form-group">
-                <label for="add_truck_name" class='label'>Truck Name</label>
-                <input type="input" class="input is-rounded form-control" id="add_truck_name" placeholder="Truck Name">
-              </div>
-              <div class="form-group">
-                <label for="add_location" class='label'>Location</label>
-                <input type="input" class="input is-rounded form-control" id="add_location"
-                  placeholder="Select Neighborhood">
-              </div>
-              <div class="form-group">
-                <label for="add_cuisine_type" class='label'>Cuisine</label>
-                <input type="input" class="input is-rounded form-control" id="add_cuisine_type"
-                  placeholder="Cuisine Type">
-              </div>
-              <br />
-              <button type="submit" class="button btn first"><span>Add</span></button>
-            </form>
-          </div>
+        <div class="col-md-2 inputBox">
+          <h2 class="title is-4">Add a Truck</h2>
+          <form class="add">
+            <div class="form-group">
+              <label for="add_truck_name" class='label'>Truck Name</label>
+              <input type="input" class="input is-rounded form-control" id="add_truck_name" placeholder="Truck Name">
+            </div>
+            <div class="form-group">
+              <label for="add_location" class='label'>Location</label>
+              <input type="input" class="input is-rounded form-control" id="add_location"
+                placeholder="Select Neighborhood">
+            </div>
+            <div class="form-group">
+              <label for="add_cuisine_type" class='label'>Cuisine</label>
+              <input type="input" class="input is-rounded form-control" id="add_cuisine_type"
+                placeholder="Cuisine Type">
+            </div>
+            <br />
+            <button type="submit" class="button btn first"><span>Add</span></button>
+          </form>
+        </div>
       </section>
 
 
 
       <table class="table table-bordered table-light table-hover">
         <thead>
-          <!-- <tr class="text-center">
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-              </tr> -->
         </thead>
         <tbody>
         </tbody>

@@ -7,7 +7,7 @@ form.login {
 
 .page-grid {
   display: grid;
-  grid-template-columns: 2fr 1.25fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-rows: 80px auto;
   grid-template-areas: "welcome sidebar"
                        "main sidebar"
@@ -21,9 +21,9 @@ body {
 }
 
 .navbar {
-  background-color: lightgray;
+  border: 1px solid rgb(204, 204, 204);
+  background-color: rgb(255, 255, 255);
 }
-
 
 /* Start of elements */
 
@@ -32,6 +32,14 @@ body {
   font-size: x-large;
   margin: 20px;
   grid-area: welcome;
+  font-family: 'Raleway', sans-serif;
+  place-items: start;
+}
+
+.title {
+  display: grid;
+  place-items: start;
+  font-family: 'Raleway', sans-serif;
 }
 
 .top {
@@ -41,11 +49,12 @@ body {
 .table{
   grid-area: results;
   margin: 30px;
+  min-width: 80%;
 }
 
 .inputSection {
   grid-area: main;
-  max-width: 50vw;
+  max-width: 80%;
   box-sizing: border-box;
   padding: 10px;
   margin: 0 auto ;
@@ -57,16 +66,25 @@ body {
 
 .inputBox {
   display: inline-block;
-  margin: 15px;
+  margin: 30px;
+  min-width: 40%;
+}
+
+.label {
+  font-family: 'Caveat', cursive;
+  font-size: large;
+  margin: 0px;
 }
 
 .input {
   margin: 0px;
 }
 
-.label {
+.labelhero {
   font-family: 'Caveat', cursive;
-  font-size: xx-large
+  font-size: x-large;
+  color: black;
+  margin-bottom: 2px;
 }
 
 h1,
@@ -76,6 +94,9 @@ h2 {
   opacity: 95%;
 }
 
+#map {
+  position: fixed;
+}
 
 .hero {
   float: right;
@@ -85,10 +106,25 @@ h2 {
   background-image: url(https://images.all-free-download.com/images/graphiclarge/vivid_food_icons_vector_536507.jpg); 
 }
 
+
+/* Card Section */
+
 .card {
   margin: 20px;
   box-sizing: border-box;
   padding: 25px;
+
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.card:hover, .card:focus, .card:active {
+  -webkit-transform: translateX(8px);
+  transform: translateX(8px);
 }
 
 .card-footer{
@@ -97,6 +133,7 @@ h2 {
 }
 
 /* Search & Add button styling and animation_____________*/
+
 
 .btn {
   box-sizing: border-box;
