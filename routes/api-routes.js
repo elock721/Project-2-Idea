@@ -65,6 +65,7 @@ module.exports = function(app) {
         name: req.params.name 
       }
     }).then(function(result){
+      
       res.json(result)
     })
   })
@@ -88,14 +89,16 @@ module.exports = function(app) {
     db.Truck.create({
       name: req.body.name,
       cuisine: req.body.cuisine,
-      neighborhood: req.body.neighborhood
+      neighborhood: req.body.neighborhood,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude
     })
       .then(function(data) {
         // console.log(json(data));
-        // res.json(data);
+        return res.json(data);
       })
       .catch(function(err) {
-        res.status(401).json(err);
+        return res.status(401).json(err);
       });
   });
 

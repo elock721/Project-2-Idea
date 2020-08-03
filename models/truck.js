@@ -10,7 +10,13 @@ module.exports = function(sequelize, DataTypes) {
     },
     neighborhood: {
       type: DataTypes.STRING
-    }
+    },
+    latitude: {
+      type: DataTypes.STRING
+    },
+    longitude: {
+      type: DataTypes.STRING
+    },
   });
 
   return Truck;
