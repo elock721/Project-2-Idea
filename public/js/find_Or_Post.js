@@ -83,20 +83,7 @@ $(document).ready(function() {
       .empty();
   }
 
-  // function renderTable(qryResults) {
-  //   for (var i = 0; i < qryResults.length; i++) {
-  //     $(".table")
-  //       .find("tbody")
-  //       .append(
-  //         $("<tr>")
-  //           .append($('<th scope="row">').text(qryResults[i].id))
-  //           .append($("<td>").text(qryResults[i].name))
-  //           .append($("<td>").text(qryResults[i].cuisine))
-  //           .append($("<td>").text(qryResults[i].neighborhood))
-  //       );
-  //   }
-  // }
-
+ 
   function renderResults(qryResults) {
     
     //Using Google Maps API here - we gain access to the "map" object on our page,
@@ -109,7 +96,8 @@ $(document).ready(function() {
     
 
     for (var i = 0; i < qryResults.length; i++) {
-      let coords = {lat: qryResults[i].latitude, lng: qryResults[i].longitude}
+      let coords = {lat: +qryResults[i].latitude, lng: +qryResults[i].longitude}
+      console.log(qryResults[i])
       let marker = new google.maps.Marker({position: coords, map: map});  //Creating an individual marker for each restaurant
       
       //Building the infoWindow's content for the restaurant
@@ -174,24 +162,3 @@ $(document).ready(function() {
   });
 });
 
-// function renderTable(data) {
-//     $(".table").find('tbody').empty();
-
-// $.ajax({ url: "/api/trucks", method: "GET" })
-//     .then(function (data) {
-
-//         console.log(data);
-//         console.log("------------------------------------");
-
-//         for (var i = 0; i < data.length; i++) {
-
-//             $(".table").find('tbody')
-//                 .append($('<tr>')
-//                     .append($('<th scope="row">').text(data[i].id))
-//                     .append($('<td>').text(data[i].name))
-//                     .append($('<td>').text(data[i].cuisine))
-//                     .append($('<td>').text(data[i].neighborhood)));
-//         }
-//     });
-
-// }
