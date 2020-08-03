@@ -189,7 +189,7 @@ a.button,
 .trigger-enter-active .dropdown {
   opacity: 1;
 }
-.trigger-leave .dropdown {}
+/* .trigger-leave .dropdown {} */
 .dropdownBackground {
   width: 100px;
   height: 100px;
