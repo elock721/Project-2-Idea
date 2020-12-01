@@ -70,6 +70,7 @@ module.exports = function(app) {
     })
   })
 
+
     // Search by cuisine
     app.get("/api/trucks/cuisine/:cuisine", function(req, res){
       db.Truck.findAll({
